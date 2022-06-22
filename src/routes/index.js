@@ -14,12 +14,13 @@ router.get('/', (req,res)=>{
 });
 
 router.post('/update',(req,res)=>{
-    let query = { _id: req.params.id };
-    let newvalue = { $set: { population: req.params.newPopulation } };
+    let query = { _id: req.body.id };
+    let newvalue = { $set: { population: req.body.newPopulation } };
     model.updateOne(query, newvalue, (error, city)=> {
         if(error){
             throw error;
         }
+        console.log(city)
         res.redirect('/');
     });
 });
@@ -29,8 +30,6 @@ router.get('/delete/:id',(req,res)=>{
     model.remove({_id: id},(error,city)=>{
         if(error){
             throw error;
-        }else{
-            console.log(city.name+" removed");
         }
         res.redirect('/');
     });

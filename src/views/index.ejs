@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <script type='text/javascript' src='js/search.js'></script>
+    <title>CRUD Express + MongoDB</title>
+</head>
+<body>
+    <h1>CRUD Express + MongoDB</h1>
+    <section id="add">
+        <h3>Add a new city</h3>
+        <form action="/add" method="POST">
+            <input type="text" placeholder="Name" name="name">
+            <input type="number" placeholder="Population" name="population">
+            <input type="text" placeholder="Country" name="country">
+            <input type="text" placeholder="Region" name="region">
+            <input type="checkbox" name="capital">Capital city
+            <input type="submit" value="Add city">
+        </form>
+    </section>
+
+    <section>
+        <h3>Cities List</h3>
+        <div id="searchBar"><input type="text" id="search" placeholder="Filter by city name"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Population</th>
+                    <th>Country</th>
+                    <th>Region</th>
+                    <th>Capital</th>
+                    <th>Update population</th>
+                    <th>Delete city</th>
+                </tr>
+            </thead>
+            </tbody>
+                <% for(let i=0; i<cities.length; i++) {%>
+                    <tr class="city-row">
+                        <td><%= cities[i].name %></td>
+                        <td><%= cities[i].population %></td>
+                        <td><%= cities[i].country %></td>
+                        <td><%= cities[i].region %></td>
+                        <td><%= cities[i].isCapital %></td>
+                        <td>
+                            <form action="/update" method="POST">
+                                <input type="hidden" name="id" value="<%= cities[i]._id %>">
+                                <input type="number" name="newPopulation">
+                                <input type="submit" value="Update">
+                            </form>
+                        </td>
+                        <td><a href="/delete/<%= cities[i]._id %>">Delete</a></td>
+                    </tr>
+                <% }%>
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>

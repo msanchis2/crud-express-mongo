@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+}
+h1,h3{
+    text-align: center;
+}
+table{
+    margin: auto;
+    border-radius: 30px;
+    background-color: rgb(240, 240, 240);
+    box-shadow: gainsboro 5px 5px 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    tr{
+        td,th{
+            width: 15%;
+            height: 30px;
+            text-align: center;
+        }
+    }
+}
+#searchBar{
+    margin: auto;
+    width: 500px;
+    margin-bottom: 20px;
+    input{
+        width: 500px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 10px;
+        border: 2px solid gainsboro;
+    }
+    
+}
+#add{
+    form{
+        margin: auto;
+        width: 850px;
+        input[type="submit"]{
+            margin-left: 10px;
+            width: 80px;
+            height: 30px;
+        }
+    }
+}

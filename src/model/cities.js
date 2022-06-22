@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/crud-cities').then(()=>console.log("connected"));
+mongoose.connect('mongodb+srv://marti:marti@cluster0.jxysatv.mongodb.net/?retryWrites=true&w=majority').then(()=>console.log("connected"));
 
 module.exports = function(){
     let City = Schema({
